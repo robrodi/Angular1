@@ -13,4 +13,8 @@ var myController = function($scope){
 		if (!$scope.name || $scope.name == '' || !$scope.price || $scope.price == '') return;
 		$scope.beers.push({ name: $scope.name, price: $scope.price, brewedOn: new Date()});
 	}
+	$scope.removeBeer = function(beer){
+		if (confirm("remove this beer?"))
+			$scope.beers.splice($scope.beers.indexOf(beer), 1);
+	}
 }

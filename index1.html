@@ -2,6 +2,7 @@
 	<head>
 		<title>First Angular Example</title>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link href="http://tekpub.com/stylesheets/application.css?1366910856" rel="stylesheet" type="text/css"/>
 		<link href="default.css" rel="stylesheet" type="text/css" />
 
 		 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
@@ -10,31 +11,46 @@
 	<body>
 		<h1>First Angular Example</h1>
 		<p>Walking through <a href="http://tekpub.com/productions/angular/1">Tekpub Angular JS</a></p>
+		<article class="main">
 		<div class="container" ng-app>
-			<input type="text" ng-model="name"/>
-			<h2>Hello {{name}}</h2>
-
+			<!--
+				<input type="text" ng-model="name"/>
+				<h2>Hello {{name}}</h2>
+			-->
 			<div ng-controller="myController"> <!-- Ties to myController pulled in in js -->
-				<h2>Beers</h2>
+				<h2><span>Beers</span></h2>
+
+				<!-- item list -->
+				<table class="table table-striped">
+					<thead><tr>
+						<th>Beer</th>
+						<th>Price</th>
+						<th>Brewed On</th>
+					</tr></thead>
+
+					<tbody>
+						<tr ng-repeat="beer in beers">
+							<td>{{beer.name}}</td>
+							<td>{{beer.price | currency}}</td>
+							<td>{{beer.brewedOn | date: 'fullDate'}}</td>
+							<td><p class="btn btn-danger" ng-click="removeBeer(beer)">Remove</p></td>
+						</tr>
+					</tbody>
+				</table>
 				<!-- pluralizer -->
 				<p><ng-pluralize count="beers.length" when="pluralizer" /></p>
-				<!-- item list -->
-				<ul>
-					<li ng-repeat="beer in beers">{{beer.name}}: {{beer.price | currency}}  brewed on {{beer.brewedOn | date: 'fullDate'}}</li> <!-- pipe denotes a filter, in this case the currency and date filters.  Note, date has a specific format as well -->
-				</ul>
-
-				<div id="form">
-					<p>
-						<label>name</label>
-						<input type="text" ng-model="name" />
-					</p>
-					<p>
-						<label>price</label>
-						<input type="text" ng-model="price"/>
-					</p>
-					<p><button class="btn btn-success" ng-click="addBeer()">Add</button></p>
-				</div>
+			
+				<p>
+					<label>name</label>
+					<input type="text" ng-model="name" />
+				</p>
+				<p>
+					<label>price</label>
+					<input type="text" ng-model="price"/>
+				</p>
+				<p><button class="btn btn-success" ng-click="addBeer()">Add</button></p>
 			</div>
 		</div>
+	</article>
 	</body>
 </html>
