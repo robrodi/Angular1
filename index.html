@@ -17,8 +17,8 @@
 				<h2><span>Metadata</span></h2>
 				<p>
 					<label for="metadataType">Type: </label>
-					<select id="metadataType">
-						<option ng-repeat="type in metadataTypes" value="{{type.name}}">{{type.name}}</option>
+					<select ng-model="selectedType" ng-options="type.name for type in metadataTypes">
+						  <option value="" selected>Select type ..</option>  
 					</select>
 				</p>
 				<!-- item list -->
