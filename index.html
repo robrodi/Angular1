@@ -5,7 +5,8 @@
 		<link href="http://tekpub.com/stylesheets/application.css?1366910856" rel="stylesheet" type="text/css"/>
 		<link href="default.css" rel="stylesheet" type="text/css" />
 
-		 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+		 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
+		 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.js"></script>
 		 <script src="scripts/common.js"></script>
 		 <script src="scripts/app1.js"></script>
 	</head>
@@ -18,7 +19,7 @@
 				<h2><span>Metadata</span></h2>
 				<p>
 					<label for="metadataType">Type: </label>
-					<select ng-model="selectedType" ng-options="type.name for type in metadataTypes">
+					<select ng-model="selectedType" ng-options="type.name for type in metadataTypes.data.items">
 						  <option value="" selected>Select type ..</option>  
 					</select>
 				</p>
@@ -33,6 +34,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<button class="btn btn-success" ng-click="break()">break</button>
 			<!--
 				<p>
 					<label>name</label>
