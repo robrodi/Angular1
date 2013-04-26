@@ -1,9 +1,20 @@
+
 // scope is dependency injection!
-var myController = function($scope){
-	$scope.items = [
-						{name : "90 Minute IPA", brewer: "dogfish head", price: 3.25, brewedOn: "2013-03-15"}, 
-						{name : "Manny's Pale Ale", brewer: "georgetown", price: 1.50, brewedOn: "2013-04-12"}, 
-					];
+
+var toNamedArray = function(data)
+{
+	var result = new Array();
+	for (var key in data)
+		result.push({ name: key, data:data[key]});
+	return result;
+}
+var myController = function($scope, $http){
+	var metadataResult = $http.get('metadata.json');
+
+	metadataResult.success(function(data){
+		$scope.metadataTypes = toNamedArray(data);
+	});
+	
 	$scope.pluralizer = {
 		0 : "No Items!",
 		1 : "Only 1 item left!",
