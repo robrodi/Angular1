@@ -1,6 +1,6 @@
 
 // scope is dependency injection!
-
+Object.prototype.toNamedArray = function() { return toNamedArray(this); }
 var toNamedArray = function(data)
 {
 	var result = new Array();
@@ -12,7 +12,9 @@ var myController = function($scope, $http){
 	var metadataResult = $http.get('metadata.json');
 
 	metadataResult.success(function(data){
-		$scope.metadataTypes = toNamedArray(data);
+		$scope.metadataTypes = data.toNamedArray();
+		
+		$scope.selectedType = $scope.metadataTypes[0];
 	});
 	
 	$scope.pluralizer = {

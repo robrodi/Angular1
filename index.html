@@ -22,6 +22,11 @@
 					</select>
 				</p>
 				<!-- item list -->
+				<ul >
+					<li ng-repeat="item in selectedType">
+						{{item}}
+					</li>
+				</ul>
 				<table class="table table-striped">
 					<thead><tr>
 						<th>Item</th>
@@ -29,8 +34,8 @@
 					</tr></thead>
 
 					<tbody>
-						<tr ng-repeat="item in items">
-							<td>{{item.name}}</td>
+						<tr ng-repeat="item in selectedType">
+							<td>{{item}}</td>
 							
 						</tr>
 					</tbody>
