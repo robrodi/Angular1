@@ -13,14 +13,14 @@ var myController = function($scope, $http){
 
 	metadataResult.success(function(data){
 		$scope.metadataTypes = data.toNamedArray();
-		
+
 		$scope.selectedType = $scope.metadataTypes[0];
 	});
 	
 	$scope.pluralizer = {
 		0 : "No Items!",
 		1 : "Only 1 item left!",
-		other : "{} items in fridge"
+		other : "{} items"
 	};
 	$scope.addItem = function() {
 		if (!$scope.name || $scope.name == '' || !$scope.price || $scope.price == '') return;
