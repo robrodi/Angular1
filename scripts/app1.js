@@ -1,14 +1,15 @@
+var ngMetadata = angular.module("ngMetadata", []);
+
+Object.prototype.toNamedArray = function() { 
+	var result = new Array();
+	for (var key in this)
+		result.push({ name: key, data:this[key]});
+	return result; 
+}
+
 
 // scope is dependency injection!
-Object.prototype.toNamedArray = function() { return toNamedArray(this); }
-var toNamedArray = function(data)
-{
-	var result = new Array();
-	for (var key in data)
-		result.push({ name: key, data:data[key]});
-	return result;
-}
-var myController = function($scope, $http){
+ngMetadata.controller("ListCtrl", function($scope, $http){
 	var metadataResult = $http.get('metadata.json');
 
 	metadataResult.success(function(data){
@@ -30,4 +31,4 @@ var myController = function($scope, $http){
 		if (confirm("remove this item?"))
 			$scope.items.splice($scope.items.indexOf(item), 1);
 	}
-}
+});

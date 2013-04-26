@@ -12,8 +12,8 @@
 		<h1>Metadata Browser</h1>
 		<p>Walking through <a href="http://tekpub.com/productions/angular/1">Tekpub Angular JS</a></p>
 		<article class="main">
-		<div class="container" ng-app>
-			<div ng-controller="myController"> <!-- Ties to myController pulled in in js -->
+		<div class="container">
+			<div ng-controller="ListCtrl" ng-app="ngMetadata"> <!-- Ties to myController pulled in in js -->
 				<h2><span>Metadata</span></h2>
 				<p>
 					<label for="metadataType">Type: </label>
@@ -29,7 +29,6 @@
 					<tbody>
 						<tr ng-repeat="item in selectedType">
 							<td>{{item}}</td>
-							
 						</tr>
 					</tbody>
 				</table>
