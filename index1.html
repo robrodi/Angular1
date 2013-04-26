@@ -9,36 +9,29 @@
 		 <script src="scripts/app1.js"></script>
 	</head>
 	<body>
-		<h1>First Angular Example</h1>
+		<h1>Metadata Browser</h1>
 		<p>Walking through <a href="http://tekpub.com/productions/angular/1">Tekpub Angular JS</a></p>
 		<article class="main">
 		<div class="container" ng-app>
-			<!--
-				<input type="text" ng-model="name"/>
-				<h2>Hello {{name}}</h2>
-			-->
 			<div ng-controller="myController"> <!-- Ties to myController pulled in in js -->
-				<h2><span>Beers</span></h2>
+				<h2><span>Metadata</span></h2>
 
 				<!-- item list -->
 				<table class="table table-striped">
 					<thead><tr>
-						<th>Beer</th>
-						<th>Price</th>
-						<th>Brewed On</th>
+						<th>Item</th>
+					
 					</tr></thead>
 
 					<tbody>
-						<tr ng-repeat="beer in beers">
-							<td>{{beer.name}}</td>
-							<td>{{beer.price | currency}}</td>
-							<td>{{beer.brewedOn | date: 'fullDate'}}</td>
-							<td><p class="btn btn-danger" ng-click="removeBeer(beer)">Remove</p></td>
+						<tr ng-repeat="item in items">
+							<td>{{item.name}}</td>
+							
 						</tr>
 					</tbody>
 				</table>
 				<!-- pluralizer -->
-				<p><ng-pluralize count="beers.length" when="pluralizer" /></p>
+				<p><ng-pluralize count="items.length" when="pluralizer" /></p>
 			
 				<p>
 					<label>name</label>
@@ -48,7 +41,7 @@
 					<label>price</label>
 					<input type="text" ng-model="price"/>
 				</p>
-				<p><button class="btn btn-success" ng-click="addBeer()">Add</button></p>
+				<p><button class="btn btn-success" ng-click="addItem()">Add</button></p>
 			</div>
 		</div>
 	</article>
