@@ -1,1 +1,21 @@
 body { font-family: 'Roboto', sans-serif; }
+button {
+	background-color: #2f96b4; color: #fff;
+	padding: 5px 8px 5px 8px;
+	padding: 7px 13px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #FFF;
+	text-shadow: none;
+	background-image: none;
+	background-repeat: no-repeat;
+	border: none;
+	filter: none;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+button:hover{ background-color: #58D3F7 }

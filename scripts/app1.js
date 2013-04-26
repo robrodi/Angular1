@@ -9,4 +9,8 @@ var myController = function($scope){
 		1 : "Only 1 beer left!",
 		other : "{} beers in fridge"
 	};
+	$scope.addBeer = function() {
+		if (!$scope.name || $scope.name == '' || !$scope.price || $scope.price == '') return;
+		$scope.beers.push({ name: $scope.name, price: $scope.price, brewedOn: new Date()});
+	}
 }
