@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<title>Metadata Angular Example</title>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -21,6 +22,7 @@
 					<select ng-model="selectedType" ng-options="type.name.replace('Metadata', '') for type in metadataTypes">
 						  <option value="" selected>Select type ..</option>  
 					</select>
+					<button class="btn btn-success" ng-click="break()">break</button>
 				</p>
 				<!-- item list -->
 				<table class="table table-striped">
@@ -28,11 +30,12 @@
 						<th>Item</th>
 					</tr></thead>
 					<tbody>
-						<tr ng-repeat="item in selectedType">
+						<tr ng-repeat="item in selectedType.data[selectedType.name.replace('Metadata', '')]">
 							<td>{{item}}</td>
 						</tr>
 					</tbody>
 				</table>
+
 			<!--
 				<p>
 					<label>name</label>
