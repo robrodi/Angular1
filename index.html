@@ -18,7 +18,7 @@
 				<h2><span>Metadata</span></h2>
 				<p>
 					<label for="metadataType">Type: </label>
-					<select ng-model="selectedType" ng-options="type.name for type in metadataTypes">
+					<select ng-model="selectedType" ng-options="type.name.replace('Metadata', '') for type in metadataTypes">
 						  <option value="" selected>Select type ..</option>  
 					</select>
 				</p>

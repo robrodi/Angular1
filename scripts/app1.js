@@ -17,12 +17,5 @@ ngMetadata.controller("ListCtrl", function($scope, Metadata){
 		$scope.selectedType = $scope.metadataTypes[0];
 	});
 	
-	$scope.addItem = function() {
-		if (!$scope.name || $scope.name == '' || !$scope.price || $scope.price == '') return;
-		$scope.items.push({ name: $scope.name, price: $scope.price, brewedOn: new Date()});
-	}
-	$scope.removeItem = function(item){
-		if (confirm("remove this item?"))
-			$scope.items.splice($scope.items.indexOf(item), 1);
-	}
+	
 });
